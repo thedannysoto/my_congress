@@ -1,21 +1,21 @@
-require_relative 'lib/my/congress/version'
+require_relative 'config/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "my-congress"
-  spec.version       = Config::VERSION
+  spec.version       = '0.1.0'
   spec.authors       = ["thedannysoto"]
   spec.email         = ["87dsoto@gmail.com"]
 
   spec.summary       = %q{A gem for finding current U.S. Senators and Representative for a particular location.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/thedannysoto/my_congress"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
   #spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = https://github.com/thedannysoto/my-congress
-  spec.metadata["changelog_uri"] = https://github.com/thedannysoto/my-congress
+  spec.metadata["source_code_uri"] = "https://github.com/thedannysoto/my_congress"
+  spec.metadata["changelog_uri"] = "https://github.com/thedannysoto/my-congress"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
