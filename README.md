@@ -22,6 +22,7 @@ Or install it yourself as:
     $ gem install my-congress
 
 ## Usage
+Launch My Congress with  $ my_congress
 
 In order to use My Congress, follow the prompts to enter a valid
 U.S. address. You can navigate the gem through the menus provided.

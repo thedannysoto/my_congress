@@ -7,7 +7,7 @@
 # require 'selenium-webdriver'
 
 
-class MyCongress
+class MCongress
   
 
   def call
@@ -22,7 +22,7 @@ class MyCongress
     if choice != "1" && choice != "2" && choice.upcase != "EXIT"
       puts "Invalid input. Press 'Enter to return to Main Menu.".colorize(:blue)
       nothing = gets.chomp
-      MyCongress.new.call
+      MCongress.new.call
     elsif choice.upcase == "EXIT"
       ProgramEnd.new
     end
@@ -40,7 +40,6 @@ class MyCongress
       puts " "
       puts "Please wait while we locate your congressional district...".colorize(:red)
       GetURL.new(@@street_input, @@zip_input, @@state_input)
-      #MyCongress.get_url(@@street_input, @@zip_input)
     else
       UpcomingElections.new(@@state_input)
     end
@@ -74,7 +73,7 @@ class MyCongress
     address_string += address_array[address_array.length-1]
     
     site = "https://secure.everyaction.com/p/VRl-GNlm_0mCSWaMc4d6_w2?pc=#{zip}&add1=#{address_string}&results=True"
-    MyCongress.selenium(site)
+    MCongress.selenium(site)
   
   end
 
@@ -91,7 +90,7 @@ class MyCongress
       puts " "
       puts "Could not locate address. Press 'Enter' to return to Main Menu.".colorize(:blue)
       nothing = gets.chomp
-      MyCongress.new.call
+      MCongress.new.call
     end
     elements =  Nokogiri::HTML(open(driver.current_url))
 
@@ -101,7 +100,7 @@ class MyCongress
 
     driver.quit
 
-    MyCongress.find_representatives(sen1, sen2, rep, elements)
+    MCongress.find_representatives(sen1, sen2, rep, elements)
 
   end 
 
@@ -136,5 +135,3 @@ class MyCongress
   end
 
 end 
-
-#MyCongress.new

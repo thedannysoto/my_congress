@@ -38,9 +38,9 @@ class CongressOutput
         if choice != '1' && choice != '2' && choice.upcase != 'EXIT'
             puts "Invalid input. Press 'Enter' to return to Main Menu."
             nothing = gets.chomp
-            MyCongress.new.call
+            MCongress.new.call
         elsif choice == '1'
-            MyCongress.new.call
+            MCongress.new.call
         elsif choice == '2'
             UpcomingElections.new(state)
         else

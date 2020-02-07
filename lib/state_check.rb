@@ -1,6 +1,4 @@
-# require "require_all"
-# require_all "lib"
-# require 'pry'
+
 
 class StateCheck
 
@@ -61,12 +59,12 @@ class StateCheck
         if !@@states.keys.include?(state_input.upcase) && !@@states.values.include?(state_input.upcase)
             puts "Invalid State name. Press 'Enter' to return to Main Menu.".colorize(:blue)
             nothing = gets.chomp
-            MyCongress.new.call
+            MCongress.new.call
         elsif @@states.values.include?(state_input.upcase)
-            MyCongress.state_input=(@@states.key(state_input.upcase))
+            MCongress.state_input=(@@states.key(state_input.upcase))
             return true
         else
-            MyCongress.state_input=(state_input.upcase)
+            MCongress.state_input=(state_input.upcase)
             return true
         end 
     end

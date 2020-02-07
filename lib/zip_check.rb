@@ -1,6 +1,4 @@
-# require "require_all"
-# require_all "lib"
-# require 'pry'
+
 
 class ZipCheck
 
@@ -8,7 +6,7 @@ class ZipCheck
         if zip.length != 5 || zip.scan(/[0-9]{5}/)[0].length != 5
             puts "Zip Code is Invalid. Press 'Enter' to return to Main Menu.".colorize(:blue)
             nothing = gets.chomp
-            MyCongress.new.call
+            MCongress.new.call
         end
     end
 

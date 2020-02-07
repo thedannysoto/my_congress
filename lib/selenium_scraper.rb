@@ -15,7 +15,7 @@ class SeleniumScraper
             puts " "
             puts "Could not locate address. Press 'Enter' to return to Main Menu.".colorize(:blue)
             nothing = gets.chomp
-            MyCongress.new.call
+            MCongress.new.call
         end
         
         # Once Selenium passes the refresh, Nokogiri is easier

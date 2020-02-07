@@ -1,6 +1,3 @@
-# require 'require_all'
-# require_all 'lib'
-# require 'pry'
 
 class ProgramEnd
     def initialize
