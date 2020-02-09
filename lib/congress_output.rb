@@ -4,9 +4,9 @@
 
 class CongressOutput
 
-    def initialize(sen1, sen2, rep, dist, state)
+    def initialize(sen1, sen2, rep, dist, address)
         Header.new
-        puts "Congressional Representative for the State of #{state.capitalize}, District #{dist}: ".colorize(:blue) + "#{rep[:name]}"
+        puts "Congressional Representative for the State of #{address[:state].capitalize}, District #{dist}: ".colorize(:blue) + "#{rep[:name]}"
         puts " "
         puts "Party Affiliation: ".colorize(:red) + "#{rep[:party]}"
         puts "Phone: ".colorize(:red) + "#{rep[:phone]}"
@@ -14,7 +14,7 @@ class CongressOutput
         puts "Facebook: ".colorize(:red) + "#{rep[:facebook]}"
         puts "Website: ".colorize(:red) + "#{rep[:website]}"
         puts "------------------------------------------------------------------------------------------"
-        puts "U.S. Senator for the State of #{state.capitalize}: ".colorize(:blue) + "#{sen1[:name]}"
+        puts "U.S. Senator for the State of #{address[:state].capitalize}: ".colorize(:blue) + "#{sen1[:name]}"
         puts " "
         puts "Party Affiliation: ".colorize(:red) + "#{sen1[:party]}"
         puts "Phone: ".colorize(:red) + "#{sen1[:phone]}"
@@ -22,7 +22,7 @@ class CongressOutput
         puts "Facebook: ".colorize(:red) + "#{sen1[:facebook]}"
         puts "Website: ".colorize(:red) + "#{sen1[:website]}"
         puts "------------------------------------------------------------------------------------------"
-        puts "U.S. Senator for the State of #{state.capitalize}: ".colorize(:blue) + "#{sen2[:name]}"
+        puts "U.S. Senator for the State of #{address[:state].capitalize}: ".colorize(:blue) + "#{sen2[:name]}"
         puts " "
         puts "Party Affiliation: ".colorize(:red) + "#{sen2[:party]}"
         puts "Phone: ".colorize(:red) + "#{sen2[:phone]}"
@@ -31,18 +31,24 @@ class CongressOutput
         puts "Website: ".colorize(:red) + "#{sen2[:website]}"
         puts "------------------------------------------------------------------------------------------"
         puts " "
-        puts "Enter '1' to return to Main Menu.".colorize(:blue)
-        puts "Enter '2' to see upcoming elections in your area.".colorize(:blue)
-        puts "Type 'exit' to leave My Congress.".colorize(:blue)
-        choice = gets.chomp
-        if choice != '1' && choice != '2' && choice.upcase != 'EXIT'
-            puts "Invalid input. Press 'Enter' to return to Main Menu."
-            nothing = gets.chomp
-            MCongress.new.call
-        elsif choice == '1'
+
+        prompt = TTY::Prompt.new(active_color: :blue)
+        choice = prompt.select("Please make a selection from the menu:".colorize(:red)) do |menu|
+            menu.choice 'Return to Main Menu', "1"
+            menu.choice 'See upcoming elections in my area', "2"
+            menu.choice 'See current headlines in U.S. Politics', "3"
+            menu.choice 'See list of upcoming bills for House and Senate', "4"
+            menu.choice 'Exit My Congress', "EXIT"
+        end 
+     
+        if choice == '1'
             MCongress.new.call
         elsif choice == '2'
-            UpcomingElections.new(state)
+            UpcomingElections.new(address)
+        elsif choice == '3'
+            Headlines.new
+        elsif choice == '4'
+            Bills.new
         else
             ProgramEnd.new
         end

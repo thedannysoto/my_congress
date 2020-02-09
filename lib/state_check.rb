@@ -55,17 +55,17 @@ class StateCheck
         "WYOMING" => "WY"
     }
 
-    def initialize(state_input)
-        if !@@states.keys.include?(state_input.upcase) && !@@states.values.include?(state_input.upcase)
-            puts "Invalid State name. Press 'Enter' to return to Main Menu.".colorize(:blue)
-            nothing = gets.chomp
+    def initialize(address)
+        if !@@states.keys.include?(address[:state].upcase) && !@@states.values.include?(address[:state].upcase)
+            puts " "
+            puts " "
+            prompt = TTY::Prompt.new
+            prompt.keypress("Invalid State name. Press any key to return to Main Menu.")
             MCongress.new.call
-        elsif @@states.values.include?(state_input.upcase)
-            MCongress.state_input=(@@states.key(state_input.upcase))
-            return true
+        elsif @@states.values.include?(address[:state].upcase)
+            address[:state] = (@@states.key(address[:state].upcase))
         else
-            MCongress.state_input=(state_input.upcase)
-            return true
+            address[:state] = (address[:state].upcase)
         end 
     end
 end

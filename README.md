@@ -21,6 +21,23 @@ Or install it yourself as:
 
     $ gem install my-congress
 
+My Congress requires ChromeDriver for some features. Please read installation instructions below:
+
+ChromeDriver is a separate executable that Selenium WebDriver uses to control Chrome. It is maintained by the Chromium team with help from WebDriver contributors. If you are unfamiliar with Selenium WebDriver, you should check out the Selenium site.
+
+Follow these steps to setup your tests for running with ChromeDriver:
+
+Ensure Chromium/Google Chrome is installed in a recognized location
+ChromeDriver expects you to have Chrome installed in the default location for your platform. You can also force ChromeDriver to use a custom location by setting a special capability.
+Download the ChromeDriver binary for your platform at https://chromedriver.chromium.org/downloads
+Help WebDriver find the downloaded ChromeDriver executable
+Any of these steps should do the trick:
+1) include the ChromeDriver location in your PATH environment variable
+2) (Java only) specify its location via the webdriver.chrome.driver system property
+3) (Python only) include the path to ChromeDriver when instantiating webdriver.Chrome
+
+For more information, go to https://chromedriver.chromium.org/getting-started
+
 ## Usage
 Launch My Congress with  $ my_congress
 
@@ -30,7 +47,7 @@ You can type 'exit' to quit the gem when you are done.
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 

@@ -2,10 +2,12 @@
 
 class ZipCheck
 
-    def initialize(zip)
-        if zip.length != 5 || zip.scan(/[0-9]{5}/)[0].length != 5
-            puts "Zip Code is Invalid. Press 'Enter' to return to Main Menu.".colorize(:blue)
-            nothing = gets.chomp
+    def initialize(address)
+        if address[:zip].length != 5 || address[:zip].scan(/[0-9]{5}/)[0].length != 5
+            puts " "
+            puts " "
+            prompt = TTY::Prompt.new
+            prompt.keypress("Invalid Zip Code. Press any key to return to Main Menu.")
             MCongress.new.call
         end
     end

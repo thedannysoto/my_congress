@@ -1,6 +1,6 @@
 class SeleniumScraper
 
-    def initialize(site, state)
+    def initialize(site, address)
 
         # Launch Chrome behind the scenes & scrape website
         options = Selenium::WebDriver::Chrome::Options.new(args: ['headless'])
@@ -13,8 +13,8 @@ class SeleniumScraper
         #Error for not locating address / invalid address
         if info[3] == nil
             puts " "
-            puts "Could not locate address. Press 'Enter' to return to Main Menu.".colorize(:blue)
-            nothing = gets.chomp
+            prompt = TTY::Prompt.new
+            prompt.keypress("Could not find address. Press any key to return to Main Menu.".colorize(:red))
             MCongress.new.call
         end
         
@@ -30,7 +30,7 @@ class SeleniumScraper
         driver.quit
 
         # Sent to FindRepresentatives method to organize info for display
-        FindRepresentatives.new(sen1, sen2, rep, elements, state)
+        FindRepresentatives.new(sen1, sen2, rep, elements, address)
 
     end 
 end

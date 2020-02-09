@@ -1,9 +1,9 @@
 class GetURL
 
-    def initialize(street, zip, state)
+    def initialize(address)
     
-    #Turn street string into string to add to URL
-    address_array = street.scan(/\w+/)
+    #Turn street address into string formatted for URL
+    address_array = address[:street].scan(/\w+/)
     address_string = ""
     x = 0
     while x < address_array.length - 1
@@ -13,9 +13,9 @@ class GetURL
     address_string += address_array[address_array.length-1]
     
     #Add street string + zip to url
-    site = "https://secure.everyaction.com/p/VRl-GNlm_0mCSWaMc4d6_w2?pc=#{zip}&add1=#{address_string}&results=True"
+    site = "https://secure.everyaction.com/p/VRl-GNlm_0mCSWaMc4d6_w2?pc=#{address[:zip]}&add1=#{address_string}&results=True"
     
     #send formatted URL to Selenium
-    SeleniumScraper.new(site, state)
+    SeleniumScraper.new(site, address)
     end
 end

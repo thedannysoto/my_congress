@@ -1,6 +1,6 @@
 class FindRepresentatives
 
-    def initialize(sen1, sen2, rep, elements, state)
+    def initialize(sen1, sen2, rep, elements, address)
         # Grab district number for Representative display
         @district = rep[2].scan(/\d/)[0]
         
@@ -28,9 +28,9 @@ class FindRepresentatives
             x += 1
         end
     
-        # Send organized hashes, district, and state to 
+        # Send organized hashes, district, and address hash to 
         # CongressOutput method for output
-        CongressOutput.new(senator1, senator2, representative, @district, state)
+        CongressOutput.new(senator1, senator2, representative, @district, address)
 
 
 
