@@ -1,5 +1,3 @@
-require 'pry'
-
 class UpcomingElections
 
     def initialize(address)
@@ -33,17 +31,17 @@ class UpcomingElections
             puts " "
         end 
 
-        prompt = TTY::Prompt.new(active_color: :blue)
-        choice = prompt.select("Please make a selection from the menu:".colorize(:red)) do |menu|
-            menu.choice 'Return to Main Menu', "1"
+        prompt = TTY::Prompt.new(active_color: :red)
+        choice = prompt.select("Please make a selection from the menu:".colorize(:blue)) do |menu|
             menu.choice 'Find U.S. Senators and the Congressional Representative for my location', "2"
             menu.choice 'See current headlines in U.S. Politics', "3"
             menu.choice 'See list of upcoming bills for House and Senate', "4"
+            menu.choice 'Return to Main Menu', "1"
             menu.choice 'Exit My Congress', "EXIT"
         end 
         
         if choice == '1'
-            MCongress.new.call
+            MyCongress.new.call
         elsif choice == '2'
             puts " "
             puts "Please wait while we locate your congressional district...".colorize(:red)

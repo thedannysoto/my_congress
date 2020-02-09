@@ -1,9 +1,3 @@
-# require 'pry'
-# require 'nokogiri'
-# require 'open-uri'
-# require 'colorize'
-# require 'tty-prompt'
-
 class Headlines
 
     def initialize
@@ -51,8 +45,8 @@ class Headlines
 
         puts " "
         puts " "
-        prompt = TTY::Prompt.new(active_color: :blue)
-        choice = prompt.select("Please make a selection from the menu:".colorize(:red)) do |menu|
+        prompt = TTY::Prompt.new(active_color: :red)
+        choice = prompt.select("Please make a selection from the menu:".colorize(:blue)) do |menu|
             menu.choice 'Show more headlines', "1"
             menu.choice 'See list of upcoming bills for House and Senate', "2"
             menu.choice 'Return to Main Menu', "3"
@@ -64,7 +58,7 @@ class Headlines
         elsif choice == "2"
             Bills.new
         elsif choice == "3"
-            MCongress.new.call
+            MyCongress.new.call
         else 
             headline_output_2(headline_array)
         end
@@ -90,8 +84,8 @@ class Headlines
 
         puts " "
         puts " "
-        prompt = TTY::Prompt.new(active_color: :blue)
-        choice = prompt.select("Please make a selection from the menu:".colorize(:red)) do |menu|
+        prompt = TTY::Prompt.new(active_color: :red)
+        choice = prompt.select("Please make a selection from the menu:".colorize(:blue)) do |menu|
             menu.choice 'Show more headlines', "1"
             menu.choice 'Return to Main Menu', "2"
             menu.choice 'Exit My Congress', "EXIT"
@@ -100,7 +94,7 @@ class Headlines
         if choice == "EXIT"
             ProgramEnd.new
         elsif choice == "2"
-            MCongress.new.call
+            MyCongress.new.call
         else 
             headline_output_3(headline_array)
         end
@@ -126,8 +120,8 @@ class Headlines
 
         puts " "
         puts " "
-        prompt = TTY::Prompt.new(active_color: :blue)
-        choice = prompt.select("Please make a selection from the menu:".colorize(:red)) do |menu|
+        prompt = TTY::Prompt.new(active_color: :red)
+        choice = prompt.select("Please make a selection from the menu:".colorize(:blue)) do |menu|
             menu.choice 'Return to Main Menu', "1"
             menu.choice 'Exit My Congress', "EXIT"
         end 
@@ -135,7 +129,7 @@ class Headlines
         if choice == "EXIT"
             ProgramEnd.new
         else
-            MCongress.new.call
+            MyCongress.new.call
         end
     end
 end

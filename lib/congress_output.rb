@@ -1,7 +1,3 @@
-# require 'require_all'
-# require_all 'lib'
-# require 'colorize'
-
 class CongressOutput
 
     def initialize(sen1, sen2, rep, dist, address)
@@ -34,15 +30,15 @@ class CongressOutput
 
         prompt = TTY::Prompt.new(active_color: :blue)
         choice = prompt.select("Please make a selection from the menu:".colorize(:red)) do |menu|
-            menu.choice 'Return to Main Menu', "1"
             menu.choice 'See upcoming elections in my area', "2"
             menu.choice 'See current headlines in U.S. Politics', "3"
             menu.choice 'See list of upcoming bills for House and Senate', "4"
+            menu.choice 'Return to Main Menu', "1"
             menu.choice 'Exit My Congress', "EXIT"
         end 
      
         if choice == '1'
-            MCongress.new.call
+            MyCongress.new.call
         elsif choice == '2'
             UpcomingElections.new(address)
         elsif choice == '3'

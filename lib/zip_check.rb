@@ -1,5 +1,3 @@
-
-
 class ZipCheck
 
     def initialize(address)
@@ -8,7 +6,7 @@ class ZipCheck
             puts " "
             prompt = TTY::Prompt.new
             prompt.keypress("Invalid Zip Code. Press any key to return to Main Menu.")
-            MCongress.new.call
+            MyCongress.new.call
         end
     end
 

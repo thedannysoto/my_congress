@@ -1,4 +1,3 @@
-
 class Header
     def initialize
         system "clear"

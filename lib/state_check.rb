@@ -61,7 +61,7 @@ class StateCheck
             puts " "
             prompt = TTY::Prompt.new
             prompt.keypress("Invalid State name. Press any key to return to Main Menu.")
-            MCongress.new.call
+            MyCongress.new.call
         elsif @@states.values.include?(address[:state].upcase)
             address[:state] = (@@states.key(address[:state].upcase))
         else

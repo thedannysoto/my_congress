@@ -5,8 +5,8 @@ require_relative 'config/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "my-congress"
-  spec.version       = MyCongress::Gem::VERSION
-  spec.authors       = ["thedannysoto"]
+  spec.version       = MCongress::Gem::VERSION
+  spec.authors       = ["Danny Soto"]
   spec.email         = ["87dsoto@gmail.com"]
 
   spec.summary       = %q{A gem for finding current U.S. Senators and Representative for a particular location.}

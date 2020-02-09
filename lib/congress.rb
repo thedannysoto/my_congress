@@ -1,16 +1,12 @@
-require 'require_all'
-require 'pry'
-require_all 'lib'
-
-class MCongress
+class MyCongress
 
   def call
     Header.new
     HeaderQuote.new
-    puts "Welcome to My Congress!".colorize(:blue) 
+    puts "Welcome to My Congress!" 
     puts " "
-    prompt = TTY::Prompt.new(active_color: :blue)
-    choice = prompt.select("Please make a selection from the menu:".colorize(:red)) do |menu|
+    prompt = TTY::Prompt.new(active_color: :red)
+    choice = prompt.select("Please make a selection from the menu:".colorize(:blue)) do |menu|
       menu.choice 'Find U.S. Senators and the Congressional Representative for my location', "1"
       menu.choice 'See upcoming elections in my area', "2"
       menu.choice 'See current headlines in U.S. Politcs', "3"

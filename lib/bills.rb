@@ -1,9 +1,3 @@
-# require 'pry'
-# require 'nokogiri'
-# require 'open-uri'
-# require 'colorize'
-# require 'tty-prompt'
-
 class Bills
 
     def initialize
@@ -53,14 +47,14 @@ class Bills
         choice = prompt.select("Please make a selection from the menu:".colorize(:blue)) do |menu|
             menu.choice 'Read summary of bills', "1"
             menu.choice 'See current headlines in U.S. Politcs', "2"
-            menu.choice 'Return to main menu', "3"
+            menu.choice 'Return to Main Menu', "3"
             menu.choice 'Exit My Congress', "EXIT"
         end 
 
         if choice == '2'
             Headlines.new
         elsif choice == '3'
-            MCongress.new.call
+            MyCongress.new.call
         elsif choice == 'EXIT'
             ProgramEnd.new
         else
@@ -92,7 +86,7 @@ class Bills
         choice = prompt.select("Please make a selection from the menu:".colorize(:blue)) do |menu|
             menu.choice 'See list of upcoming bills for House and Senate', "1"
             menu.choice 'See current headlines in U.S. Politcs', "2"
-            menu.choice 'Return to main menu', "3"
+            menu.choice 'Return to Main Menu', "3"
             menu.choice 'Exit My Congress', "EXIT"
         end 
 
@@ -101,7 +95,7 @@ class Bills
         elsif choice == "2"
             Headlines.new 
         elsif choice == "3"
-            MCongress.new.call
+            MyCongress.new.call
         else  
             ProgramEnd.new
         end

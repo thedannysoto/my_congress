@@ -15,7 +15,7 @@ class SeleniumScraper
             puts " "
             prompt = TTY::Prompt.new
             prompt.keypress("Could not find address. Press any key to return to Main Menu.".colorize(:red))
-            MCongress.new.call
+            MyCongress.new.call
         end
         
         # Once Selenium passes the refresh, Nokogiri is easier

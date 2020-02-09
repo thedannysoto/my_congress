@@ -1,4 +1,3 @@
-
 class HeaderQuote
     @@quotes = {
         :quote1 => [
@@ -26,14 +25,11 @@ class HeaderQuote
             '                                                             - Ulysses S. Grant'
         ]
     }
+
+    #Grabs random quote from above hash for Main Menu
     def initialize
         key = "#{@@quotes.keys[rand(@@quotes.size)]}"
-       # puts " "
         @@quotes[key.intern].each {|line| puts line}
-        #puts " "
         puts "------------------------------------------------------------------------------------------"
-
     end
-
-
 end
