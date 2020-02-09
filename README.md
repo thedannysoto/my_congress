@@ -3,7 +3,8 @@
 Welcome to My Congress! This gem prompts the user for an address
 and returns the current U.S. Senators and Congressional representatives
 for that location. It also has an option for looking up the upcoming
-elections in that state.
+elections in that state, viewing current political headlines,
+and seeing upcoming Senate and House Bills.
 
 ## Installation
 
