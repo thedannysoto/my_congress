@@ -28,8 +28,8 @@ class CongressOutput
         puts "------------------------------------------------------------------------------------------"
         puts " "
 
-        prompt = TTY::Prompt.new(active_color: :blue)
-        choice = prompt.select("Please make a selection from the menu:".colorize(:red)) do |menu|
+        prompt = TTY::Prompt.new(active_color: :red)
+        choice = prompt.select("Please make a selection from the menu:".colorize(:blue)) do |menu|
             menu.choice 'See upcoming elections in my area', "2"
             menu.choice 'See current headlines in U.S. Politics', "3"
             menu.choice 'See list of upcoming bills for House and Senate', "4"
