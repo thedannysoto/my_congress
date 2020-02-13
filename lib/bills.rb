@@ -1,4 +1,3 @@
-require 'pry'
 class Bills
 
     def initialize
@@ -27,15 +26,10 @@ class Bills
     end
     
     def bill_output(bill_array)
-        #limit max bills shown to 5 bills
-        x = bill_array.length
-        if x > 5
-            x = 5
-        end
         system "clear"
         puts " "
         puts " "
-        puts "#{x} bills and resolutions that are on the House and Senate calendars for the coming days: ".colorize(:blue)
+        puts "#{bill_array.length} bills and resolutions that are on the House and Senate calendars for the coming days: ".colorize(:blue)
         puts " "
         puts "------------------------------------------------------------------------------------------"
         puts " "
@@ -65,14 +59,14 @@ class Bills
             ProgramEnd.new
         else
             prompt = TTY::Prompt.new(active_color: :red)
-            num = prompt.select("Please choose one of the bills:".colorize(:blue)) do |menu|
+            bill_choice = prompt.select("Please choose one of the bills:".colorize(:blue)) do |menu|
                 x = 0
                 while x < bill_array.length
                     menu.choice "#{x+1}", "#{x}"
                     x += 1
                 end
             end
-            bill_summary(bill_array, num)
+            bill_summary(bill_array, bill_choice)
         end
 
     end
