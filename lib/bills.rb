@@ -1,3 +1,4 @@
+require 'pry'
 class Bills
 
     def initialize
@@ -8,7 +9,7 @@ class Bills
         bills = page.css("table.table tr")
         bill_each = page.css("table.table tr td")
         x = 3
-        while x < (4 + (bills.length - 1) * 4) 
+        while x < (4 + (bills.length - 1) * 4) && x < 20
             bill_hash = {  }
             bill_hash[:name] = bill_each[x].css("a").children.text
             bill_hash[:congress] = bill_each[x-1].css("div").children.children.text
@@ -26,10 +27,15 @@ class Bills
     end
     
     def bill_output(bill_array)
+        #limit max bills shown to 5 bills
+        x = bill_array.length
+        if x > 5
+            x = 5
+        end
         system "clear"
         puts " "
         puts " "
-        puts "#{bill_array.length} bills and resolutions that are on the House and Senate calendars for the coming days: ".colorize(:blue)
+        puts "#{x} bills and resolutions that are on the House and Senate calendars for the coming days: ".colorize(:blue)
         puts " "
         puts "------------------------------------------------------------------------------------------"
         puts " "
