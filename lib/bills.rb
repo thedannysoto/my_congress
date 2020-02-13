@@ -8,7 +8,7 @@ class Bills
         bills = page.css("table.table tr")
         bill_each = page.css("table.table tr td")
         x = 3
-        while x < 20
+        while x < (4 + (bills.length - 1) * 4) 
             bill_hash = {  }
             bill_hash[:name] = bill_each[x].css("a").children.text
             bill_hash[:congress] = bill_each[x-1].css("div").children.children.text
